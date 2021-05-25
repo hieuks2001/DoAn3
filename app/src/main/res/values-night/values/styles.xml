@@ -1,0 +1,47 @@
+    <resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#26c6da</item>
+        <item name="colorPrimaryVariant">#009688</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorSecondary">#00acc1</item>
+        <item name="colorSecondaryVariant">#00acc1</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorError">#F44336</item>
+        <item name="colorOnError">#000000</item>
+        <item name="colorSurface">#000000</item>
+        <item name="colorOnSurface">#000000</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+    </style>
+
+    <style name="GameTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#006064</item>
+        <item name="colorPrimaryVariant">#00acc1</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorSecondary">#00bcd4</item>
+        <item name="colorSecondaryVariant">#009688</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorError">#F44336</item>
+        <item name="colorOnError">#000000</item>
+        <item name="colorSurface">#00acc1</item>
+        <item name="colorOnSurface">#000000</item>
+        <item name="backgroundColor">#009688</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+
+    </style>
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="DialogTheme" parent="MaterialAlertDialog.MaterialComponents.Title.Icon"></style>
+</resources>

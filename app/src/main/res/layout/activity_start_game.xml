@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".room.StartGameActivity"
+    android:background="#e1f5fe">
+
+    <Button
+        android:id="@+id/sign_out"
+        android:layout_width="42dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/logout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/clock"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/start_game_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layoutAnimation="@anim/recyclerview_layout_animation"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/roomcode_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:elegantTextHeight="true"
+        android:elevation="4dp"
+        android:text="jfs"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+<!--        <ImageButton-->
+<!--        android:id="@+id/copy_button"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:background="@drawable/copy"-->
+<!--        android:elevation="@dimen/default_slider_bar_height"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/roomcode_textview"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/roomcode_textview"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/roomcode_textview" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/imageButton_share"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:background="@drawable/share"-->
+<!--        android:elevation="@dimen/cardview_default_radius"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/copy_button"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/copy_button"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/copy_button" />-->
+
+    <ImageView
+        android:id="@+id/start_game_button"
+        android:layout_width="138dp"
+        android:layout_height="95dp"
+        android:layout_marginBottom="152dp"
+        android:background="@drawable/play"
+        android:elevation="30dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/start_game_recyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_start_game"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/start_game_recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
