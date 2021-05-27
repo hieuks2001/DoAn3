@@ -131,7 +131,7 @@
             android:id="@+id/guess_editText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Guess here"
+            android:hint="Đoán từ"
             android:inputType="textShortMessage|textPersonName"
             android:paddingStart="6dp"
             android:paddingTop="1dp"

@@ -1,5 +1,6 @@
 package com.vdhieu.doan.room
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -16,8 +17,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firebase.model.User
-import com.firebase.ui.auth.AuthUI
-import com.google.common.base.Utf8
+import com.flask.colorpicker.ColorPickerView
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentChange
@@ -25,7 +26,6 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.vdhieu.doan.DialogStroke
-import com.vdhieu.doan.LoginActivity
 import com.vdhieu.doan.R
 import com.vdhieu.doan.model.GuessText
 import com.vdhieu.doan.play.DrawSegment
@@ -198,7 +198,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         leaderBoardListener()
         listenCorrectGuessNum()
 
-
         color_pallette.setOnClickListener(this)
         eraser.setOnClickListener(this)
         clear_button.setOnClickListener(this)
@@ -211,7 +210,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 return@setOnClickListener
             }
-
 
 
 
@@ -995,7 +993,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     imageView_color_pallette.setBackgroundColor(transparent)
                 }
                 R.id.color_pallette -> {
-//                    colorPaletteDisplay()
+                    colorPaletteDisplay()
                     imageView_color_pallette.background =
                         resources.getDrawable(R.drawable.highlight)
                     imageView_clear_button.setBackgroundColor(transparent)
@@ -1024,6 +1022,34 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
 
         }
+    }
+
+    @SuppressLint("ResourceType")
+    private fun colorPaletteDisplay() {
+        val mColor: Int = myPaintView?.paint?.color ?: Color.GREEN
+
+
+        ColorPickerDialogBuilder
+            .with(this)
+            .setTitle("Chọn màu cho bút")
+            .initialColor(mColor)
+            .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+            .density(12)
+            .setOnColorSelectedListener { selectedColor ->
+                Toast.makeText(this, "selected color: $selectedColor", Toast.LENGTH_SHORT)
+            }
+            .setPositiveButton(
+                "Chọn"
+            ) { dialog, selectedColor, allColors -> changeColor(selectedColor) }
+            .setNegativeButton(
+                "Huỷ"
+            ) { dialog, which -> }
+            .build()
+            .show()
+    }
+
+    private fun changeColor(selectedColor: Int) {
+        myPaintView?.changeStrokeColor(selectedColor)
     }
 
     private fun startTimerCurrentDrawer() {

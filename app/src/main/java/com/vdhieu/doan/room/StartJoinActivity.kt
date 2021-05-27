@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.example.firebase.model.User
+import com.firebase.ui.auth.AuthUI
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -24,6 +25,9 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import kotlinx.android.synthetic.main.activity_start_game.*
 import kotlinx.android.synthetic.main.activity_start_join.*
+import org.jetbrains.anko.clearTask
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.newTask
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.LineNumberReader
@@ -50,8 +54,14 @@ class StartJoinActivity : AppCompatActivity() {
         val roomCodeReceived = intent.getStringExtra(RoomActivity.ROOM_CODE).toString()
         myUser = intent.getParcelableExtra(LoginActivity.USER_KEY_SIGNUP)
 
+        sign_out_join.setOnClickListener {
+            AuthUI.getInstance().signOut(this@StartJoinActivity).addOnCompleteListener {
+                startActivity(intentFor<LoginActivity>().newTask().clearTask())
+            }
+        }
+
         bottom_anim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
-        caution_textView.animation = bottom_anim
+
         createArrayOfWords(roomCodeReceived)
         startGame(roomCodeReceived)
     }

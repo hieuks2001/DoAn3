@@ -141,7 +141,10 @@ class PaintView(context: Context, attributeSet: AttributeSet?) : View(context, a
         invalidate()
         isDrawingCacheEnabled = true
     }
-
+    fun changeStrokeColor(sColor: Int) {
+        paint!!.color = sColor
+        chosenColor = sColor
+    }
     fun clearDrawingForAll() {
         ref!!.removeValue()
         paint.color = chosenColor
